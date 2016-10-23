@@ -1,0 +1,49 @@
+<h1>{{subtotal|currency}} </h1>
+<div class="bag">
+  <button id="checkout" ng-click="checkout()" type="button" name="bag">Checkout:{{iteminbag}}</button>
+</div>
+<div class="items">
+    <div class="item" ng-repeat="item in items">
+        <div class="itemPic">
+            <img ng-src="{{item.imageUrl}}" />
+        </div>
+        <div class="itemInfo">
+            <h3> {{item.name}}</h3>
+            <div class="itemLine">
+                <h5>Price:</h5>
+                <p>{{item.price|price|currency}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>CaffeineScale:</h5>
+                <p>{{item.caffeineScale}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>Ingredients:</h5>
+                <p>{{item.ingredients}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>Rating:</h5>
+                <p>{{item.rating}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>In Stock:</h5>
+                <p ng-class="{'fa fa-check': item.inStock,'fa fa-frown-o':!item.inStock}"></p>
+            </div>
+            <div class="itemLine">
+                <h5>Categories:</h5>
+                <p ng-repeat="categorie in item.categories"><span class="fa fa-leaf"></span> {{categorie}}</p>
+            </div>
+        </div>
+        <div class="checkout">
+          <div class="quantity">
+            <h4>Quantity: </h4>
+            <select ng-model="quantity" ng-init="quantity= '1'" >
+                <option ng-repeat="number in Range" value="{{number}}">{{number}}</option>
+            </select>
+          </div>
+            <div>
+                <button id="addtocart" ng-click="addToCart(item._id,item,quantity); quantity=1" type="button">Add to  Cart</button>
+            </div>
+        </div>
+      </div>
+</div>

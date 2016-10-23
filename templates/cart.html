@@ -1,0 +1,38 @@
+<h1>hi</h1>
+{{basket}}
+{{subtotal}}
+<div class="items">
+    <div class="item" ng-repeat="item in items">
+        <div class="itemPic">
+            <img ng-src="{{item.imageUrl}}" />
+        </div>
+        <div class="itemInfo">
+            <h3> {{item.name}}</h3>
+            <div class="itemLine">
+                <h5>Price:</h5>
+                <p>{{item.price|price|currency}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>CaffeineScale:</h5>
+                <p>{{item.caffeineScale}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>Ingredients:</h5>
+                <p>{{item.ingredients}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>Rating:</h5>
+                <p>{{item.rating}}</p>
+            </div>
+            <div class="itemLine">
+                <h5>In Stock:</h5>
+                <p ng-class="{'fa fa-check': item.inStock,'fa fa-frown-o':!item.inStock}"></p>
+            </div>
+            <div class="itemLine">
+                <h5>Categories:</h5>
+                <p ng-repeat="categorie in item.categories"><span class="fa fa-leaf"></span> {{categorie}}</p>
+            </div>
+        </div>
+
+      </div>
+</div>
